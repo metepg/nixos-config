@@ -50,10 +50,19 @@
   security.rtkit.enable = true;
 
   services = {
+    displayManager.defaultSession = "xfce+i3";
+    #displayManager.defaultSession = "none+i3";
+    
     xserver = {
       enable = true;
       displayManager.lightdm.enable = true;
-      desktopManager.xfce.enable = true;
+      desktopManager.xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+      windowManager.i3.enable = true;
+      
       xkb = {
         layout = "fi";
         variant = "nodeadkeys";
@@ -86,6 +95,7 @@
         STOP_CHARGE_THRESH_BAT0 = 95;
       };
     };
+    
     logind = {
       settings = {
         Login = {
@@ -142,6 +152,7 @@
     fd
     git
     htop
+    i3status
     ranger
     ripgrep
     rofi
