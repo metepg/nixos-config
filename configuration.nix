@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.overlays = import ./overlays.nix;
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -56,6 +58,9 @@
     xserver = {
       enable = true;
       displayManager.lightdm.enable = true;
+      displayManager.setupCommands = ''
+        ${pkgs.numlockx}/bin/numlockx on
+      '';
       desktopManager.xfce = {
         enable = true;
         noDesktop = true;
@@ -152,6 +157,7 @@
     fd
     git
     htop
+    intellij-pinned
     i3status
     ranger
     ripgrep

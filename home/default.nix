@@ -15,6 +15,7 @@
   imports = [
     ./git.nix
     ./i3.nix
+    ./ideavimrc.nix
     ./vim.nix
     ./xdg.nix
     ./zsh.nix

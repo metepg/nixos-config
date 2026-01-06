@@ -9,9 +9,9 @@ in
       # Modifier key (super)
       modifier = modifier;
 
-      #startup = [
-      #  { command = "i3-msg workspace number 1"; notification = false; }
-      #];
+      startup = [
+        { command = "i3-msg workspace number 1"; notification = false; }
+      ];
       
       keybindings = lib.mkOptionDefault {
         
