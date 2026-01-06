@@ -10,8 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.overlays = import ./overlays.nix;
-  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -128,27 +126,20 @@
   users.users.nixosman = {
     isNormalUser = true;
     description = "nixosman";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   programs = {
     zsh = {
       enable = true;
-    };
-    chromium = {
-      enable = true;
-      extensions = [
-        "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
-      ];
-      # Set these for i to focus input to vimium settings
-      #unmap i
-      #map i focusInput
-    };
-    firefox = {
-        enable = true;
     };
   };
 
@@ -161,20 +152,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    bat
-    chromium
-    firefox
-    eza
-    fd
+    docker-compose
     git
-    htop
-    intellij-pinned
     i3status
-    ranger
-    ripgrep
     rofi
-    tldr
-    tree
     vim
     wget
   ];

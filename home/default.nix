@@ -4,6 +4,19 @@
   home.username = "nixosman";
   home.homeDirectory = "/home/nixosman";
 
+  home.packages = with pkgs; [
+    bat
+    chromium
+    firefox
+    eza
+    fd
+    htop
+    ranger
+    ripgrep
+    tldr
+    tree
+  ];
+
   # Set repeat delay to 200ms and rate to 50Hz
   xfconf.settings = {
     keyboards = {
@@ -13,10 +26,12 @@
   };
 
   imports = [
+    ./browser.nix
     ./git.nix
     ./i3.nix
     ./i3status.nix
     ./ideavimrc.nix
+    ./intellij.nix
     ./vim.nix
     ./xdg.nix
     ./zsh.nix

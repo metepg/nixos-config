@@ -6,6 +6,7 @@
     createDirectories = true;
     extraConfig = {
       XDG_VIMUNDO_DIR = "${config.home.homeDirectory}/.vimundo";
+      XDG_PROJECTS_DIR = "${config.home.homeDirectory}/projects";
     };
   };
 
