@@ -12,6 +12,15 @@ in
       startup = [
         { command = "i3-msg workspace number 1"; notification = false; }
       ];
+      bars = [
+        {
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          fonts = {
+            names = [ "DejaVu Sans Mono" ];
+            size = 12.0;
+          };
+        }
+      ];
       
       keybindings = lib.mkOptionDefault {
         

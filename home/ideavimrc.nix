@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # The .ideavimrc content you requested
   home.file.".ideavimrc".text = ''
     set relativenumber
     set number
@@ -48,9 +47,4 @@
     let g:NERDTreeMapJumpParent='h'
     nnoremap <A-q> :action NERDTreeToggle<CR>
   '';
-
-  # You can also move the package installation here if you like
-  home.packages = [
-    pkgs.intellij-pinned
-  ];
 }
