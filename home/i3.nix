@@ -24,9 +24,12 @@ in
       
       keybindings = lib.mkOptionDefault {
         
-        # Alt tab
+        # Alt+tab
         "Mod1+Tab" = "focus next";
         "Mod1+Shift+Tab" = "focus prev";
+
+        # Shutdown
+        "${modifier}+F4" = "exec systemctl poweroff";
 
         # Focus windows with h j k l
         "${modifier}+h" = "focus left";

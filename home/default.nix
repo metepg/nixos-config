@@ -1,8 +1,19 @@
 { pkgs, ... }:
 
+let
+  java21 = pkgs.jdk21;
+in
 {
   home.username = "nixosman";
   home.homeDirectory = "/home/nixosman";
+
+  programs.java = {
+    enable = true;
+    package = java21;
+  };
+
+  # Easier access to JAVA_HOME
+  home.file.".jdk".source = java21;
 
   home.packages = with pkgs; [
     bat
@@ -11,6 +22,9 @@
     eza
     fd
     htop
+    jdk21
+    nodejs_24
+    pnpm
     ranger
     ripgrep
     tldr
@@ -24,6 +38,7 @@
       "Default/KeyRepeat/Rate" = 35;
     };
   };
+
 
   imports = [
     ./browser.nix
