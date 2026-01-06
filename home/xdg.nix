@@ -1,0 +1,28 @@
+{ config, lib, pkgs, ... }:
+
+{
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    extraConfig = {
+      XDG_VIMUNDO_DIR = "${config.home.homeDirectory}/.vimundo";
+    };
+  };
+
+  # Set Chromium as the default for web links and HTML files
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "chromium-browser.desktop";
+      "x-scheme-handler/http" = "chromium-browser.desktop";
+      "x-scheme-handler/https" = "chromium-browser.desktop";
+      "x-scheme-handler/about" = "chromium-browser.desktop";
+      "x-scheme-handler/unknown" = "chromium-browser.desktop";
+    };
+  };
+
+  # Set the BROWSER environment variable
+  home.sessionVariables = {
+    BROWSER = "chromium";
+  };
+}
