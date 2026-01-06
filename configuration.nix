@@ -43,18 +43,6 @@
     LC_TIME = "fi_FI.UTF-8";
   };
 
-  systemd.services.numlock-on-tty = {
-    description = "Enable NumLock on TTYs";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = pkgs.writeShellScript "numlock-on-tty" ''
-        for tty in /dev/tty{1..6}; do
-        ${pkgs.kbd}/bin/setleds -D +num < "$tty";
-        done
-      '';
-    };
-  };
-
   # Configure console keymap
   console.keyMap = "fi";
 
@@ -63,7 +51,7 @@
 
   services = {
     displayManager.defaultSession = "xfce+i3";
-    #displayManager.defaultSession = "none+i3";
+    #displayManager.defaultSession = "xfce";
     
     xserver = {
       enable = true;

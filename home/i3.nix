@@ -22,6 +22,14 @@ in
         }
       ];
       
+      # Border titles
+      window = {
+        titlebar = false;
+      };
+      floating = {
+        titlebar = false;
+      };
+
       keybindings = lib.mkOptionDefault {
         
         # Alt+tab
