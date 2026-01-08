@@ -41,15 +41,15 @@ in
 
 
   imports = [
-    ./browser.nix
-    ./git.nix
-    ./i3.nix
-    ./i3status.nix
-    ./ideavimrc.nix
-    ./intellij.nix
-    ./vim.nix
-    ./xdg.nix
-    ./zsh.nix
+    ../../modules/home-manager/browser.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/i3.nix
+    ../../modules/home-manager/i3status.nix
+    ../../modules/home-manager/ideavimrc.nix
+    ../../modules/home-manager/intellij.nix
+    ../../modules/home-manager/vim.nix
+    ../../modules/home-manager/xdg.nix
+    ../../modules/home-manager/zsh-base.nix
   ];
 
   programs.home-manager.enable = true;
