@@ -49,7 +49,7 @@ in
     ../../modules/home-manager/intellij.nix
     ../../modules/home-manager/vim.nix
     ../../modules/home-manager/xdg.nix
-    ../../modules/home-manager/zsh-base.nix
+    ../../modules/home-manager/zsh.nix
   ];
 
   programs.home-manager.enable = true;

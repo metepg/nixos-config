@@ -1,1 +1,5 @@
 .idea/
+result*
+.direnv/
+*.swp
+.DS_Store

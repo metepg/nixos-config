@@ -2,7 +2,6 @@
   programs.git = {
     enable = true;
 
-    # New structured settings format
     settings = {
       user = {
         name = "Mete Guneysel";
@@ -13,6 +12,7 @@
         defaultBranch = "main";
       };
 
+      # Can push without setting the new branch upstream first
       push = {
         autoSetupRemote = true;
       };
@@ -23,11 +23,5 @@
       };
     };
     
-    ignores = [
-      ".direnv/"
-      "result"
-      "*.swp"
-      ".DS_Store"
-    ];
   };
 }
