@@ -4,8 +4,10 @@ let
   java21 = pkgs.jdk21;
 in
 {
-  home.username = "nixosman";
-  home.homeDirectory = "/home/nixosman";
+  home = {
+    username = "nixosman";
+    homeDirectory = "/home/nixosman";
+  };
 
   programs.java = {
     enable = true;

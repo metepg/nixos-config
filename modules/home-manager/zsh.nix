@@ -14,8 +14,8 @@
         lla = "ls -ld .?*";
         llt = "eza -T";
         ra = ". ranger";
-        update = "sudo nixos-rebuild switch --flake .#nixosman";
-        testit = "sudo nixos-rebuild dry-activate --flake .#nixosman";
+        update = "nh os switch --no-nom";
+        testit = "nh os test --no-nom";
         open = "xdg-open";
         pre="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'";
       };

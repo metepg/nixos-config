@@ -24,7 +24,8 @@
     nh = {
       enable = true;
       clean.enable = true;
-      clean.extraArgs = "--keep 10 --format human";
+      clean.extraArgs = "--keep-since 3d --keep 10";
+      flake = "/home/nixosman/nixos-config";
     };
   };
 
