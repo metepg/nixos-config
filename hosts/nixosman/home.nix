@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config,  ... }:
 
 let
   java21 = pkgs.jdk21;
@@ -16,6 +16,17 @@ in
 
   # Easier access to JAVA_HOME
   home.file.".jdk".source = java21;
+
+  home.file."${config.home.homeDirectory}/.config/flameshot/flameshot.ini".text = ''
+    [General]
+    contrastOpacity=188
+    insecurePixelate=true
+    showHelp=false
+    showSelectionGeometryHideTime=3000
+    showSidePanelButton=false
+    showStartupLaunchMessage=false
+    undoLimit=100
+  '';
 
   home.packages = with pkgs; [
     bat
@@ -44,6 +55,7 @@ in
 
   imports = [
     ../../modules/home-manager/browser.nix
+    ../../modules/home-manager/flameshot.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/i3.nix
     ../../modules/home-manager/i3status.nix

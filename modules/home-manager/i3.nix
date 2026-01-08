@@ -81,6 +81,9 @@ in
         "XF86AudioLowerVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute"        = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
+        # Screenshot
+        "${modifier}+Shift+s" = "exec --no-startup-id flameshot gui";
+
       };
 
       # Rofi launcher
