@@ -71,11 +71,29 @@
           zle reset-prompt
         }
 
+        # --- Ctrl+T to open file in Vim ---
+        fzf-open-in-vim() {
+          local file=$(eval "$FZF_CTRL_T_COMMAND" | fzf --exit-0)
+
+          if [[ -n "$file" ]]; then
+            if [[ -d "$file" ]]; then
+              BUFFER="cd $file"
+            else
+              BUFFER="vim $file"
+            fi
+            zle accept-line
+          fi
+          zle reset-prompt
+        }
+
         # Register and bind to Ctrl+f
         zle -N fzf-custom-search
         bindkey '^f' fzf-custom-search
         zle -N fzf-custom-search
         bindkey '^f' fzf-custom-search
+        
+        zle -N fzf-open-in-vim
+        bindkey '^t' fzf-open-in-vim
       '';
 
       envExtra = ''
@@ -85,7 +103,7 @@
           --height=80% \
           --ansi \
           --bind '?:toggle-preview' \
-          --preview-window=:hidden,right \
+          --preview-window=right \
           --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
 
         export BAT_THEME="Visual Studio Dark+"

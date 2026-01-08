@@ -36,5 +36,9 @@
 
   environment.variables.EDITOR = "vim";
 
+  fonts.fontconfig.defaultFonts = {
+    monospace = [ "DejaVu Sans Mono 14" ];
+  };
+
   system.stateVersion = "25.11";
 }
