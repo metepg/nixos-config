@@ -18,7 +18,15 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 10 --format human";
+    };
+  };
 
   virtualisation.docker.rootless = {
     enable = true;
