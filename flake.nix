@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, firefox-addons, ... }@inputs: {
     nixosConfigurations = {
       
       # Host Nixosman
@@ -22,6 +23,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.nixosman = import ./hosts/nixosman/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };

@@ -30,8 +30,6 @@ in
 
   home.packages = with pkgs; [
     bat
-    chromium
-    firefox
     eza
     fd
     htop
