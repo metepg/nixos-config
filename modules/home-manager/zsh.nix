@@ -13,7 +13,6 @@
         ll = "eza -l";
         lla = "ls -ld .?*";
         llt = "eza -T";
-        ra = ". ranger";
         updateit = "nh os switch .";
         testit = "nh os test .";
         open = "xdg-open";
@@ -30,6 +29,20 @@
       };
 
       initContent = ''
+
+        # Ranger config to exit to navigated dir
+        function ra() {
+          local tmp="$(mktemp -t "ranger_cd.XXXXXX")"
+          ranger --choosedir="$tmp" "$@"
+          if [ -f "$tmp" ]; then
+              local dir="$(cat "$tmp")"
+              rm -f "$tmp"
+              if [ -d "$dir" ] && [ "$dir" != "$PWD" ]; then
+                  cd "$dir"
+              fi
+          fi
+        }
+
         # --- Existing Logic ---
         autoload -U colors && colors
         setopt prompt_subst
