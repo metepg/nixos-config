@@ -9,15 +9,35 @@
     ../../modules/nixos/power.nix   # TLP, Lid switch, Powertop
   ];
 
-  networking.hostName = "nixosman";
+  environment = {
+    systemPackages = with pkgs; [
+      docker-compose
+      git
+      i3status
+      rofi
+      vim
+      wget
+    ];
 
-  users.users.nixosman = {
-    isNormalUser = true;
-    description = "nixosman";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    variables.EDITOR = "vim";
+
   };
 
-  users.defaultUserShell = pkgs.zsh;
+  networking.hostName = "nixosman";
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+
+    users = {
+      nixosman = {
+        isNormalUser = true;
+        description = "nixosman";
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
+      };
+
+    };
+  };
+
   programs = {
     zsh.enable = true;
 
@@ -33,17 +53,6 @@
     enable = true;
     setSocketVariable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    docker-compose
-    git
-    i3status
-    rofi
-    vim
-    wget
-  ];
-
-  environment.variables.EDITOR = "vim";
 
   fonts.fontconfig.defaultFonts = {
     monospace = [ "DejaVu Sans Mono 14" ];

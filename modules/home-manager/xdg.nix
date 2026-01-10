@@ -22,8 +22,4 @@
     };
   };
 
-  # Set the BROWSER environment variable
-  home.sessionVariables = {
-    BROWSER = "chromium";
-  };
 }
