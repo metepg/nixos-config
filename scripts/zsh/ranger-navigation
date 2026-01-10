@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# Ranger config to exit to navigated dir
+local tmp="$(mktemp -t "ranger_cd.XXXXXX")"
+ranger --choosedir="$tmp" "$@"
+if [ -f "$tmp" ]; then
+    local dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    if [ -d "$dir" ] && [ "$dir" != "$PWD" ]; then
+        cd "$dir"
+    fi
+fi
