@@ -3,8 +3,8 @@
     chromium = {
       enable = true;
       extensions = [
-        # vimium
-        "dbepggeogbaibhgnhhndojpepiihcmeb"
+        "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
+        "cmedhionkhpnakcndndgjdbohmhepckk" # YouTube Adblocker
       ];
       # Set these for i to focus input on vimium settings
       #unmap i
