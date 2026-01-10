@@ -22,6 +22,12 @@
       };
     };
 
+    picom = {
+      enable = true;
+      vSync = true;
+      backend = "glx";
+    };
+
     displayManager.defaultSession = "xfce+i3";
     
     libinput.enable = true;
