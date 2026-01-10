@@ -13,7 +13,7 @@
         ll = "eza -l";
         lla = "ls -ld .?*";
         llt = "eza -T";
-        updateit = "nh os switch .";
+        buildit = "nh os switch .";
         testit = "nh os test .";
         open = "xdg-open";
         pre="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'";

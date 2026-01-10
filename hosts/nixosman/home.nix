@@ -42,15 +42,6 @@ in
     tree
   ];
 
-  # Set repeat delay to 200ms and rate to 50Hz
-  xfconf.settings = {
-    keyboards = {
-      "Default/KeyRepeat/Delay" = 220;
-      "Default/KeyRepeat/Rate" = 35;
-    };
-  };
-
-
   imports = [
     ../../modules/home-manager/browser.nix
     ../../modules/home-manager/flameshot.nix

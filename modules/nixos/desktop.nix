@@ -1,15 +1,29 @@
 { pkgs, ... }: {
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.xfce = {
+  services = {
+    xserver = {
       enable = true;
-      noDesktop = true;
-      enableXfwm = false;
+
+      # xset
+      autoRepeatDelay = 220;
+      autoRepeatInterval = 35;
+
+      displayManager.lightdm.enable = true;
+      windowManager.i3.enable = true;
+
+      desktopManager.xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+
+      xkb = {
+        layout = "fi";
+        variant = "nodeadkeys";
+      };
     };
-    windowManager.i3.enable = true;
-    xkb = { layout = "fi"; variant = "nodeadkeys"; };
+
+    displayManager.defaultSession = "xfce+i3";
+    
+    libinput.enable = true;
   };
-  services.displayManager.defaultSession = "xfce+i3";
-  services.libinput.enable = true;
 }
