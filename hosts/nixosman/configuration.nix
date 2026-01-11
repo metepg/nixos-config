@@ -14,6 +14,7 @@
       docker-compose
       git
       i3status
+      networkmanagerapplet
       rofi
       vim
       wget

@@ -22,4 +22,6 @@
     };
   };
 
+  xdg.configFile."user-dirs.dirs".force = true;
+
 }

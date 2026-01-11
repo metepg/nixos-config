@@ -30,6 +30,7 @@
       ripgrep
       tldr
       tree
+      xfce.xfce4-terminal
     ];
 
     # Shortcut symlink for JAVA_HOME

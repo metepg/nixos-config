@@ -8,9 +8,11 @@ in
     config = {
       # Modifier key (super)
       modifier = modifier;
+      terminal = "xfce4-terminal";
 
       startup = [
         { command = "i3-msg workspace number 1"; notification = false; }
+        { command = "nm-applet"; notification = false; }
       ];
       bars = [
         {

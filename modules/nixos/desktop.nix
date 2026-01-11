@@ -10,12 +10,6 @@
       displayManager.lightdm.enable = true;
       windowManager.i3.enable = true;
 
-      desktopManager.xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
-
       xkb = {
         layout = "fi";
         variant = "nodeadkeys";
@@ -28,8 +22,13 @@
       backend = "glx";
     };
 
-    displayManager.defaultSession = "xfce+i3";
-    
-    libinput.enable = true;
+    displayManager.defaultSession = "none+i3";
+
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+      };
+    };
   };
 }
