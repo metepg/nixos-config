@@ -3,10 +3,10 @@
 let modifier = "Mod4";
 in
 {
+  xsession.numlock.enable = true;
   xsession.windowManager.i3 = {
     enable = true;
     config = {
-      # Modifier key (super)
       modifier = modifier;
       terminal = "xfce4-terminal";
 
@@ -78,13 +78,19 @@ in
         "${modifier}+Shift+9" = "move container to workspace number 9; workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10; workspace number 10";
 
-        # Lock screen issue fix
-        "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+
+        # Audio
+        "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
         "XF86AudioLowerVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute"        = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMicMute"     = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+        # Brightness
+        "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set +10%";
+        "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 10%-";
 
         # Screenshot
-        "${modifier}+Shift+s" = "exec --no-startup-id flameshot gui";
+        "${modifier}+Shift+s" = "exec --no-startup-id ksnip -r";
 
       };
 

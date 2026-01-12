@@ -11,13 +11,16 @@
 
   environment = {
     systemPackages = with pkgs; [
+      brightnessctl
       docker-compose
       git
       i3status
+      ksnip
       networkmanagerapplet
       rofi
       vim
       wget
+      xclip
     ];
 
     variables.EDITOR = "vim";

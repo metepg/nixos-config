@@ -3,7 +3,6 @@
 {
   imports = [
     ../../modules/home-manager/browser.nix
-    ../../modules/home-manager/flameshot.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/i3.nix
     ../../modules/home-manager/i3status.nix
@@ -31,6 +30,15 @@
       tldr
       tree
       xfce.xfce4-terminal
+
+      (makeDesktopItem {
+        name = "logout";
+        desktopName = "logout";
+        exec = "i3-msg exit";
+        icon = "system-log-out";
+        type = "Application";
+        categories = [ "System" ];
+      })
     ];
 
     # Shortcut symlink for JAVA_HOME
@@ -40,6 +48,18 @@
        BROWSER = "chromium";
      };
 
+  };
+
+  services.copyq.enable = true;
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        font = "DejaVu Sans Mono 14";
+        timeout = "2s";
+        width = 400;
+      };
+    };
   };
 
   programs = {

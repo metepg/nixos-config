@@ -28,6 +28,7 @@
       enable = true;
       touchpad = {
         naturalScrolling = true;
+        disableWhileTyping = true;
       };
     };
   };

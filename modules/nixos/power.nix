@@ -1,6 +1,5 @@
 { ... }: {
-  powerManagement.powertop.enable = true;
-  services.power-profiles-daemon.enable = false;
+  services.upower.enable = true;
   services.tlp = {
     enable = true;
     settings = {
@@ -9,6 +8,7 @@
       STOP_CHARGE_THRESH_BAT0 = 95;
     };
   };
+
   services.logind.settings.Login = {
     HandleLidSwitch = "hibernate";
     IdleAction = "hibernate";
