@@ -31,5 +31,8 @@
         disableWhileTyping = true;
       };
     };
+
+    # Clipboard
+    greenclip.enable = true;
   };
 }

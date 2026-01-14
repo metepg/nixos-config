@@ -50,7 +50,6 @@
 
   };
 
-  services.copyq.enable = true;
   services.dunst = {
     enable = true;
     settings = {
