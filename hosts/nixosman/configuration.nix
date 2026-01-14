@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [ 
@@ -7,6 +7,7 @@
     ../../modules/nixos/desktop.nix # XFCE, i3, Xserver, LightDM
     ../../modules/nixos/audio.nix   # Pipewire, Pulse
     ../../modules/nixos/power.nix   # TLP, Lid switch, Powertop
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   environment = {
@@ -29,17 +30,25 @@
 
   networking.hostName = "nixosman";
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.nixosman = import ./nixosman.nix;
+  };
+
   users = {
     defaultUserShell = pkgs.zsh;
 
     users = {
       nixosman = {
         isNormalUser = true;
+        uid = 1000;
         description = "nixosman";
         extraGroups = [ "networkmanager" "wheel" "docker" ];
       };
-
     };
+
   };
 
   programs = {
