@@ -22,9 +22,6 @@
     map <C-K> <C-W>k
     map <C-L> <C-W>l
 
-    "" Comments
-    map ö :action Commentary<CR>
-
     "" Use system clipboard
     set clipboard+=unnamed
 
@@ -38,6 +35,10 @@
     set commentary
     set highlightedyank
     set NERDTree
+
+    "" Comments
+    xmap ö <Plug>Commentary
+    nmap ö <Plug>CommentaryLine
 
     "" MJump
     nmap f <action>(MJumpAction.Word0)
