@@ -13,7 +13,7 @@ fzf-custom-search() {
     fzf --ansi \
         --color "bg+:-1,fg+:15,hl+:15:bold:underline" \
         --delimiter : \
-        --preview-window 'right,60%,border-left,+{2}' \
+        --preview-window 'right,50%,border-left,+{2}' \
         --preview 'bat --color=always --style=numbers --theme="Visual Studio Dark+" --highlight-line {2} {1}')
 
   if [[ -n "$result" ]]; then
