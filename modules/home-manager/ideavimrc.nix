@@ -23,7 +23,7 @@
     map <C-L> <C-W>l
 
     "" Use system clipboard
-    set clipboard+=unnamed
+    set clipboard+=unnamedplus
 
     "" Hacks
     xnoremap p pgvy
