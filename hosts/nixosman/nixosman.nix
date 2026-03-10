@@ -50,15 +50,19 @@
 
   };
 
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        font = "DejaVu Sans Mono 14";
-        timeout = "2s";
-        width = 400;
+  services = { 
+    dunst = {
+      enable = true;
+      settings = {
+        global = {
+          font = "DejaVu Sans Mono 14";
+          timeout = "2s";
+          width = 400;
+        };
       };
     };
+    
+    ssh-agent.enable = true;
   };
 
   programs = {
@@ -74,6 +78,20 @@
         user = {
           name = "Mete Guneysel";
           email = "52155024+metepg@users.noreply.github.com";
+        };
+      };
+    };
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+
+      includes = [ "config.local" ];
+
+      matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+          forwardAgent = false;
         };
       };
     };
