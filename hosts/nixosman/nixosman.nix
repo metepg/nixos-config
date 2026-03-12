@@ -24,6 +24,7 @@
       fd
       htop
       nodejs_24
+      opencode
       pnpm
       ranger
       ripgrep
