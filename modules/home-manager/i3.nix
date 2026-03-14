@@ -66,6 +66,12 @@ in
         "${modifier}+9" = "workspace number 9";
         "${modifier}+0" = "workspace number 10";
 
+        # Resize
+        "${modifier}+Ctrl+h" = "resize grow left 20 px; resize shrink right 20 px";
+        "${modifier}+Ctrl+l" = "resize grow right 20 px; resize shrink left 20 px";
+        "${modifier}+Ctrl+k" = "resize grow up 20 px; resize shrink down 20 px";
+        "${modifier}+Ctrl+j" = "resize grow down 20 px; resize shrink up 20 px";
+
         # Move windows
         "${modifier}+Shift+1" = "move container to workspace number 1; workspace number 1";
         "${modifier}+Shift+2" = "move container to workspace number 2; workspace number 2";
