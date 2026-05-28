@@ -19,6 +19,7 @@
     homeDirectory = "/home/nixosman";
 
     packages = with pkgs; [
+      antigravity
       bat
       eza
       fd
