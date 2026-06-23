@@ -14,7 +14,8 @@
   ];
 
   home = {
-    stateVersion = "25.11";
+    # Updated to the new NixOS state version
+    stateVersion = "26.05";
     username = "nixosman";
     homeDirectory = "/home/nixosman";
 
@@ -31,7 +32,7 @@
       ripgrep
       tldr
       tree
-      xfce.xfce4-terminal
+      xfce4-terminal
 
       (makeDesktopItem {
         name = "logout";
@@ -90,7 +91,7 @@
 
       includes = [ "config.local" ];
 
-      matchBlocks = {
+      settings = {
         "*" = {
           addKeysToAgent = "yes";
           forwardAgent = false;
