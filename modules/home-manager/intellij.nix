@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 let
+  # IdeaVim
+  ideavim = pkgs.fetchzip {
+    url = "https://plugins.jetbrains.com/plugin/download?rel=true&updateId=1081387";
+    hash = "sha256-syYaUHgit9QVUvEmxOeEMEJN8QK+TXDUUcmsQzpUW60=";
+    extension = "zip";
+  };
+
   # MJump
   mjump = pkgs.fetchzip {
     url = "https://plugins.jetbrains.com/plugin/download?rel=true&updateId=761814";
@@ -16,9 +23,9 @@ let
   };
 in
 {
-  home.packages = with pkgs; [
-    (jetbrains.plugins.addPlugins jetbrains.idea [
-      "ideavim"
+  home.packages = [
+    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea [
+      ideavim
       mjump
       vscode-theme
     ])
